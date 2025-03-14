@@ -10,7 +10,11 @@ display = '''
 -------------------------------------------------------------
 메뉴를 선택하세요 >>> '''
 
-card_list=[['홍길동', '111-222-3333', '부산', 'hong@gmail.com'], ['박나리', '22-4444-7777', '서울', 'park@gmail.com'],['강재완','010-4565-8936','부산','wanjae8936@gmail.com']]
+filename='namecard.json'
+
+#card_list=[['홍길동', '111-222-3333', '부산', 'hong@gmail.com'], ['박나리', '22-4444-7777', '서울', 'park@gmail.com'],['강재완','010-4565-8936','부산','wanjae8936@gmail.com']]
+card_list = ncf.card_load(filename)
+
 menu = ''
 while True:
   menu = input(display)
@@ -28,6 +32,7 @@ while True:
     ncf.card_list(card_list)
   elif menu =='5':
     print('프로그램 종료')
+    ncf.card_save(card_list,filename)
     sys.exit()
   else:
     print('메뉴선택을 잘못하셨습니다.')
